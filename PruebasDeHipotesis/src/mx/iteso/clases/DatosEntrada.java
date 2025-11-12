@@ -2,11 +2,11 @@ package mx.iteso.clases;
 
 public class DatosEntrada {
 
-    public double mediaMuestral; //
-    public double mediaPoblacional; //
-    public double desviacionEstandar; //
+    public double mediaMuestral; // x̄
+    public double mediaPoblacional; // μ₀
+    public double desviacionEstandar; // σ o s
     public int muestra; // n
-    public double significancia; //
+    public double significancia; // α
     public boolean conoceS;
 
     // getters and setters
