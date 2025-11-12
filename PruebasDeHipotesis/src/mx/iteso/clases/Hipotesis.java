@@ -12,7 +12,6 @@ public class Hipotesis {
     protected double unknownStandardDeviantion; // s
     protected double degreesOfFreedom; // v = n - 1
 
-
     Hipotesis(double hypothesizedValue, int n, double meanX, double significanceLevel, double unknownStandardDeviantion, Category category){
         setHypothesizedValue(hypothesizedValue);
         setN(n);
@@ -136,4 +135,4 @@ public class Hipotesis {
 
     }
 
-}
+} // Fin de la clase hipotesis

@@ -15,4 +15,4 @@ public enum Category {
     public String toString() {
         return this.categoryName;
     }
-}
+} // Fin de la enum
