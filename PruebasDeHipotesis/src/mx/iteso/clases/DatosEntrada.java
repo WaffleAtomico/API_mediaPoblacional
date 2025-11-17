@@ -41,7 +41,7 @@ public class DatosEntrada {
     public void setSignificancia(double significancia) {
         this.significancia = significancia;
     }
-    public boolean isConoceS() {
+    public boolean getConoceS() {
         return conoceS;
     }
     public void setConoceS(boolean conoceS) {
