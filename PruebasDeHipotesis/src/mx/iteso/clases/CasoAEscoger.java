@@ -6,12 +6,16 @@ public class CasoAEscoger {
         int n = datos.getMuestra();
         boolean conoceDesviacion = datos.getConoceS();
 
-        if (n >= 30 && conoceDesviacion) {
+        // Si σ es CONOCIDA, siempre usar Z
+        if (conoceDesviacion) {
             return TipoPrueba.Z_CONOCIDA;
-        } else if(n >= 30 && !conoceDesviacion) {
-            return TipoPrueba.Z_DESCONOCIDA;
-        } else { // n < 30
-            return TipoPrueba.T_STUDENT;
+        }
+
+        // Si σ es DESCONOCIDA
+        if (n >= 30) {
+            return TipoPrueba.Z_DESCONOCIDA; // Muestra grande
+        } else {
+            return TipoPrueba.T_STUDENT; // Muestra pequeña
         }
 
     }

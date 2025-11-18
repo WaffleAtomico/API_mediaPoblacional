@@ -8,7 +8,7 @@ public class ResultadoPrueba {
     private boolean rechazarH0;
     private TipoPrueba tipoPrueba;
     private TipoHipotesis tipoHipotesis;
-    private int gradosLibertad = 0;
+    private int gradosLibertad = -1;
 
     // getters and setters
 
@@ -88,7 +88,7 @@ public class ResultadoPrueba {
                 "Tipo de Hipótesis: " + tipoHipotesis + "\n" +
                 "";
 
-        if (gradosLibertad >= 0) {
+        if (gradosLibertad > 0) {
             msj += "Grados de Libertad: " + gradosLibertad + "\n";
         }
 

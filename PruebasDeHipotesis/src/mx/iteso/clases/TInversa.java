@@ -6,14 +6,14 @@ public class TInversa {
      * Calcula la inversa de la distribución t de Student (equivalente a INV.T de Excel)
      * p La probabilidad acumulada (0 < p < 1)
      * df Los grados de libertad (df > 0)
-     * devuelve el valor t correspondiente
+     * El valor t correspondiente
      */
     public static double tInv(double p, double df) {
         if (p <= 0.0 || p >= 1.0) {
-            throw new IllegalArgumentException("La probabilidad debe estar entre 0 y 1");
+            return 0;
         }
         if (df <= 0) {
-            throw new IllegalArgumentException("Los grados de libertad deben ser mayores que 0");
+            return 0;
         }
 
         // Determinar el signo basándose en qué cola estamos
