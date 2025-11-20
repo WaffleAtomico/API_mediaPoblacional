@@ -48,7 +48,4 @@ public class DatosEntrada {
         this.conoceS = conoceS;
     }
 
-
-
-
 }

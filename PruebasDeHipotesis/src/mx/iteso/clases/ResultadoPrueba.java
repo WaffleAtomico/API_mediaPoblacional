@@ -81,8 +81,6 @@ public class ResultadoPrueba {
     @Override
     public String toString() {
 
-
-
         String msj = "=== RESULTADO DE LA PRUEBA DE HIPÓTESIS ===\n" +
                 "Tipo de prueba: " + tipoPrueba + "\n" +
                 "Tipo de Hipótesis: " + tipoHipotesis + "\n" +

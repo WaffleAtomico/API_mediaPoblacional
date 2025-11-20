@@ -22,6 +22,7 @@ public class CasoAEscoger {
 
 
     public static CalculoEstadistico obtenerEstadistico(TipoPrueba tipo) {
+        // Dependiendo del tipo de prueba retorna la función a ejecutar
         switch (tipo) {
             case Z_CONOCIDA:
                 return new CalculoZConocida();
