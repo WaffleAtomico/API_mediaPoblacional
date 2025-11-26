@@ -1,6 +1,6 @@
 package mx.iteso.clases;
 
-public class CasoAEscoger {
+public interface CasoAEscoger {
 
     public static TipoPrueba determinarTipoPrueba(DatosEntrada datos) {
         int n = datos.getMuestra();
@@ -20,9 +20,7 @@ public class CasoAEscoger {
 
     }
 
-
     public static CalculoEstadistico obtenerEstadistico(TipoPrueba tipo) {
-        // Dependiendo del tipo de prueba retorna la función a ejecutar
         switch (tipo) {
             case Z_CONOCIDA:
                 return new CalculoZConocida();

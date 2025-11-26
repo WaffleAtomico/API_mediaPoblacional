@@ -1,26 +1,25 @@
 package mx.iteso.clases;
 
-public class TInversa {
+import mx.iteso.excepciones.*;
 
-    /**
-     * Calcula la inversa de la distribución t de Student (equivalente a INV.T de Excel)
-     * p La probabilidad acumulada (0 < p < 1)
-     * df Los grados de libertad (df > 0)
-     * El valor t correspondiente
-     */
-    public static double tInv(double p, double df) {
-        if (p <= 0.0 || p >= 1.0) {
-            return 0;
+public class TInversa implements NormalInversa {
+
+    public static double tInv(double p, double df)
+            throws NegativeNumberFoundException, MoreThanOneValueFoundException {
+
+        // Validaciones
+        if (p <= 0.0 || df <= 0) {
+            throw new NegativeNumberFoundException(p);
         }
-        if (df <= 0) {
-            return 0;
+        if (p >= 1.0) {
+            throw new MoreThanOneValueFoundException(p);
         }
 
         // Determinar el signo basándose en qué cola estamos
         boolean lowerTail = p < 0.5;
         double prob = lowerTail ? p : (1.0 - p);
 
-        // Aproximación de Hill (1970) - Simple y precisa
+        // Aproximación de Hill (1970)
         double a = 1.0 / (df - 0.5);
         double b = 48.0 / (a * a);
         double c = ((20700.0 * a / b - 98.0) * a - 16.0) * a + 96.36;
@@ -44,7 +43,8 @@ public class TInversa {
                 y = 0.5 * y * y + y;
             }
         } else {
-            y = ((1.0 / (((df + 6.0) / (df * y) - 0.089 * d - 0.822) * (df + 2.0) * 3.0) + 0.5 / (df + 4.0)) * y - 1.0) * (df + 1.0) / (df + 2.0) + 1.0 / y;
+            y = ((1.0 / (((df + 6.0) / (df * y) - 0.089 * d - 0.822) * (df + 2.0) * 3.0) + 0.5 / (df + 4.0)) * y - 1.0)
+                    * (df + 1.0) / (df + 2.0) + 1.0 / y;
         }
 
         double result = Math.sqrt(df * y);

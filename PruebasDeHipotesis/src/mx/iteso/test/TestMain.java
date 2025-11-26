@@ -1,10 +1,11 @@
 package mx.iteso.test;
 
 import mx.iteso.clases.*;
+import mx.iteso.excepciones.*;
 
-public class MainTest {
+public class TestMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NegativeNumberFoundException, MoreThanOneValueFoundException {
         System.out.println("====================================");
         System.out.println("API DE PRUEBA DE HIPÓTESIS");
         System.out.println("====================================\n");
@@ -16,14 +17,14 @@ public class MainTest {
 
         // Crear datos de entrada
         DatosEntrada datos = new DatosEntrada();
-        datos.setMediaMuestral(3250);      // x̄ = 90.48
-        datos.setMediaPoblacional(3500);   // μ₀ = 90
-        datos.setDesviacionEstandar(31.6227766);  // σ = 3
-        datos.setMuestra(12);                // n = 12
-        datos.setSignificancia(0.01);        // α = 0.05
-        datos.setConoceS(true);              // σ conocida?
+        datos.setMediaMuestral(3035); // x̄ = 90.48
+        datos.setMediaPoblacional(850); // μ₀ = 90
+        datos.setDesviacionEstandar(254.3); // σ = 3
+        datos.setMuestra(16); // n = 12
+        datos.setSignificancia(0.1); // α = 0.05
+        datos.setConoceS(true); // σ conocida?
 
-        TipoHipotesis tipoHipotesis = TipoHipotesis.BILATERAL;
+        TipoHipotesis tipoHipotesis = TipoHipotesis.UNILATERAL_DERECHA;
 
         // Ejecutar prueba
         ResultadoPrueba resultado = ValoresCriticos.ejecutarPrueba(datos, tipoHipotesis);
@@ -40,14 +41,14 @@ public class MainTest {
 
         // Crear datos de entrada
         DatosEntrada datos2 = new DatosEntrada();
-        datos2.setMediaMuestral(2259.916667);      // x̄ = 2259.916667
-        datos2.setMediaPoblacional(2250);   // μ₀ = 2250
-        datos2.setDesviacionEstandar(35.56928791);  // σ = 35.56928791
-        datos2.setMuestra(12);                // n = 12
-        datos2.setSignificancia(0.05);        // α = 0.05
-        datos2.setConoceS(false);              // σ conocida?
+        datos2.setMediaMuestral(42); // x̄ = 2259.916667
+        datos2.setMediaPoblacional(40); // μ₀ = 2250
+        datos2.setDesviacionEstandar(2.1); // σ = 35.56928791
+        datos2.setMuestra(28); // n = 12
+        datos2.setSignificancia(0.05); // α = 0.05
+        datos2.setConoceS(false); // σ conocida?
 
-        TipoHipotesis tipoHipotesis2 = TipoHipotesis.BILATERAL;
+        TipoHipotesis tipoHipotesis2 = TipoHipotesis.UNILATERAL_DERECHA;
 
         // Ejecutar prueba
         ResultadoPrueba resultado2 = new ResultadoPrueba();
@@ -59,8 +60,6 @@ public class MainTest {
 
         System.out.println("\n====================================\n");
 
-
     }
-
 
 }
