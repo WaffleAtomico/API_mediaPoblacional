@@ -8,11 +8,11 @@ public interface NormalInversa {
             throws NegativeNumberFoundException, MoreThanOneValueFoundException {
 
         // Validaciones
-        if (p <= 0.0) {
-            throw new NegativeNumberFoundException(p);
-        }
         if (p >= 1.0) {
             throw new MoreThanOneValueFoundException(p);
+        }
+        if (p <= 0.0) {
+            throw new NegativeNumberFoundException(p);
         }
 
         // Coeficientes para la región central

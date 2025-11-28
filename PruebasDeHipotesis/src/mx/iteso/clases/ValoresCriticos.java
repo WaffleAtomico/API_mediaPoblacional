@@ -2,10 +2,23 @@ package mx.iteso.clases;
 
 import mx.iteso.excepciones.*;
 
-public class ValoresCriticos implements NormalInversa, CasoAEscoger, GradosLibertad{
+public class ValoresCriticos implements NormalInversa, CasoAEscoger, GradosLibertad {
 
     public static ResultadoPrueba ejecutarPrueba(DatosEntrada datos, TipoHipotesis tipoHipotesis)
             throws NegativeNumberFoundException, MoreThanOneValueFoundException {
+
+        double significancia = datos.getSignificancia();
+        int n = datos.getMuestra();
+
+        if (significancia >= 1.0) {
+            throw new MoreThanOneValueFoundException(significancia);
+        } else if (significancia <= 0.0) {
+            throw new NegativeNumberFoundException(significancia);
+        }
+
+        if (n <= 0.0) {
+            throw new NegativeNumberFoundException(n);
+        }
 
         // Paso 1: Decidir qué tipo de prueba usar (Z o t)
         TipoPrueba tipoPrueba = CasoAEscoger.determinarTipoPrueba(datos);

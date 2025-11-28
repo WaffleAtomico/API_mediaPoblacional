@@ -8,11 +8,11 @@ public class TInversa implements NormalInversa {
             throws NegativeNumberFoundException, MoreThanOneValueFoundException {
 
         // Validaciones
-        if (p <= 0.0 || df <= 0) {
-            throw new NegativeNumberFoundException(p);
-        }
         if (p >= 1.0) {
             throw new MoreThanOneValueFoundException(p);
+        }
+        if (p <= 0.0 || df <= 0) {
+            throw new NegativeNumberFoundException(p);
         }
 
         // Determinar el signo basándose en qué cola estamos
