@@ -60,6 +60,38 @@ public class TestMain {
 
         System.out.println("\n====================================\n");
 
+        // Ejemplo 4: Significancia negativa
+        System.out.println("EJEMPLO 4: Prueba con significancia inválida");
+        System.out.println("----------------------------------");
+
+        // Crear datos de entrada
+        DatosEntrada datos4 = new DatosEntrada();
+        datos4.setMediaMuestral(4.05); // x̄ = 4.05
+        datos4.setMediaPoblacional(4.0); // μ₀ = 4.0
+        datos4.setDesviacionEstandar(0.08); // s = 0.08
+        datos4.setMuestra(25); // n = 25
+        datos4.setSignificancia(1.5); // α = 1.5 no es válido
+        datos4.setConoceS(false); // σ conocida?
+
+        TipoHipotesis tipoHipotesis4 = TipoHipotesis.UNILATERAL_DERECHA;
+
+        // Ejecutar prueba
+        try {
+            ResultadoPrueba resultado4 = ValoresCriticos.ejecutarPrueba(datos4, tipoHipotesis4);
+            System.out.println(resultado4);
+        } catch (NegativeNumberFoundException e) {
+            System.out.println("Error: Valor negativo encontrado - " + e);
+        } catch (MoreThanOneValueFoundException e) {
+            System.out.println("Error: Valor mayor a 1 encontrado - " + e);
+        }
+
+        // resultado4 = ValoresCriticos.ejecutarPrueba(datos4, tipoHipotesis4);
+
+        // Mostrar resultado
+        // System.out.println(resultado4);
+
+        System.out.println("\n====================================\n");
+
         // Ejemplo 3: Prueba T con σ desconocida (n ≥ 30) 8-34
         System.out.println("EJEMPLO 3: Prueba t con σ desconocida");
         System.out.println("----------------------------------");
@@ -82,31 +114,6 @@ public class TestMain {
 
         // Mostrar resultado
         System.out.println(resultado3);
-
-        System.out.println("\n====================================\n");
-
-        // Ejemplo 4: Significancia negativa
-        System.out.println("EJEMPLO 4: Prueba con significancia inválida");
-        System.out.println("----------------------------------");
-
-        // Crear datos de entrada
-        DatosEntrada datos4 = new DatosEntrada();
-        datos4.setMediaMuestral(4.05); // x̄ = 4.05
-        datos4.setMediaPoblacional(4.0); // μ₀ = 4.0
-        datos4.setDesviacionEstandar(0.08); // s = 0.08
-        datos4.setMuestra(25); // n = 25
-        datos4.setSignificancia(1.5); // α = 1.5 no es válido
-        datos4.setConoceS(false); // σ conocida?
-
-        TipoHipotesis tipoHipotesis4 = TipoHipotesis.UNILATERAL_DERECHA;
-
-        // Ejecutar prueba
-        ResultadoPrueba resultado4 = new ResultadoPrueba();
-
-        resultado3 = ValoresCriticos.ejecutarPrueba(datos4, tipoHipotesis4);
-
-        // Mostrar resultado
-        System.out.println(resultado4);
 
         System.out.println("\n====================================\n");
 
